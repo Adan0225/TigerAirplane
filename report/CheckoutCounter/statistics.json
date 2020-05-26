@@ -1,0 +1,32 @@
+{
+  "HTTP 要求" : {
+    "transaction" : "HTTP 要求",
+    "sampleCount" : 10000,
+    "errorCount" : 6804,
+    "errorPct" : 68.04,
+    "meanResTime" : 17190.594999999972,
+    "minResTime" : 141.0,
+    "maxResTime" : 55668.0,
+    "pct1ResTime" : 29463.8,
+    "pct2ResTime" : 33576.7,
+    "pct3ResTime" : 46967.93,
+    "throughput" : 172.61915036854188,
+    "receivedKBytesPerSec" : 2115.4371013576497,
+    "sentKBytesPerSec" : 7.057763222626918
+  },
+  "Total" : {
+    "transaction" : "Total",
+    "sampleCount" : 10000,
+    "errorCount" : 6804,
+    "errorPct" : 68.04,
+    "meanResTime" : 17190.594999999972,
+    "minResTime" : 141.0,
+    "maxResTime" : 55668.0,
+    "pct1ResTime" : 29463.8,
+    "pct2ResTime" : 33576.7,
+    "pct3ResTime" : 46967.93,
+    "throughput" : 172.61915036854188,
+    "receivedKBytesPerSec" : 2115.4371013576497,
+    "sentKBytesPerSec" : 7.057763222626918
+  }
+}

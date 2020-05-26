@@ -133,7 +133,7 @@ $(document).ready(function() {
         widgets: ['zebra']
     });
 
-    var data = {"OkPercent": 93.2, "KoPercent": 6.8};
+    var data = {"OkPercent": 31.96, "KoPercent": 68.04};
     var dataset = [
         {
             "label" : "KO",
@@ -173,7 +173,7 @@ $(document).ready(function() {
     });
 
     // Creates APDEX table
-    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.0, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.0, 500, 1500, "BackAuthHit2"], "isController": false}]}, function(index, item){
+    createTable($("#apdexTable"), {"supportsControllersDiscrimination": true, "overall": {"data": [0.01745, 500, 1500, "Total"], "isController": false}, "titles": ["Apdex", "T (Toleration threshold)", "F (Frustration threshold)", "Label"], "items": [{"data": [0.01745, 500, 1500, "HTTP \u8981\u6C42"], "isController": false}]}, function(index, item){
         switch(index){
             case 0:
                 item = item.toFixed(3);
@@ -187,7 +187,7 @@ $(document).ready(function() {
     }, [[0, 0]], 3);
 
     // Create statistics table
-    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 500, 34, 6.8, 10062.771999999999, 2432, 21010, 16355.000000000002, 20999.0, 21007.0, 12.657586957622398, 10.150346422333046, 19.792016068806642], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["BackAuthHit2", 500, 34, 6.8, 10062.771999999999, 2432, 21010, 16355.000000000002, 20999.0, 21007.0, 12.657586957622398, 10.150346422333046, 19.792016068806642], "isController": false}]}, function(index, item){
+    createTable($("#statisticsTable"), {"supportsControllersDiscrimination": true, "overall": {"data": ["Total", 10000, 6804, 68.04, 17190.594999999972, 141, 55668, 29463.8, 33576.7, 46967.93, 172.61915036854188, 2115.4371013576497, 7.057763222626918], "isController": false}, "titles": ["Label", "#Samples", "KO", "Error %", "Average", "Min", "Max", "90th pct", "95th pct", "99th pct", "Transactions\/s", "Received", "Sent"], "items": [{"data": ["HTTP \u8981\u6C42", 10000, 6804, 68.04, 17190.594999999972, 141, 55668, 29463.8, 33576.7, 46967.93, 172.61915036854188, 2115.4371013576497, 7.057763222626918], "isController": false}]}, function(index, item){
         switch(index){
             // Errors pct
             case 3:
@@ -215,7 +215,7 @@ $(document).ready(function() {
     }, [[0, 0]], 0, summaryTableHeader);
 
     // Create error table
-    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to ecpayment-stage.ecpay.com.tw:443 [ecpayment-stage.ecpay.com.tw\\\/175.99.72.32] failed: Connection timed out: connect", 34, 100.0, 6.8], "isController": false}]}, function(index, item){
+    createTable($("#errorsTable"), {"supportsControllersDiscrimination": false, "titles": ["Type of error", "Number of errors", "% in errors", "% in all samples"], "items": [{"data": ["Non HTTP response code: java.net.SocketException\/Non HTTP response message: Software caused connection abort: recv failed", 89, 1.3080540858318637, 0.89], "isController": false}, {"data": ["Non HTTP response code: java.net.SocketException\/Non HTTP response message: Unrecognized Windows Sockets error: 0: recv failed", 44, 0.6466784244562023, 0.44], "isController": false}, {"data": ["Non HTTP response code: java.net.SocketException\/Non HTTP response message: Connection reset", 576, 8.465608465608465, 5.76], "isController": false}, {"data": ["Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to idenaa.cashier.ecpay.com.tw:443 [idenaa.cashier.ecpay.com.tw\\\/175.99.72.91] failed: Connection timed out: connect", 1006, 14.785420340975897, 10.06], "isController": false}, {"data": ["Non HTTP response code: javax.net.ssl.SSLHandshakeException\/Non HTTP response message: Remote host closed connection during handshake", 4701, 69.09171075837743, 47.01], "isController": false}, {"data": ["Non HTTP response code: org.apache.http.NoHttpResponseException\/Non HTTP response message: idenaa.cashier.ecpay.com.tw:443 failed to respond", 368, 5.408583186360964, 3.68], "isController": false}, {"data": ["Non HTTP response code: org.apache.http.conn.ConnectTimeoutException\/Non HTTP response message: Connect to idenaa.cashier.ecpay.com.tw:443 [idenaa.cashier.ecpay.com.tw\\\/175.99.72.91] failed: Read timed out", 20, 0.29394473838918284, 0.2], "isController": false}]}, function(index, item){
         switch(index){
             case 2:
             case 3:
@@ -226,7 +226,7 @@ $(document).ready(function() {
     }, [[1, 1]]);
 
         // Create top5 errors by sampler
-    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 500, 34, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to ecpayment-stage.ecpay.com.tw:443 [ecpayment-stage.ecpay.com.tw\\\/175.99.72.32] failed: Connection timed out: connect", 34, null, null, null, null, null, null, null, null], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["BackAuthHit2", 500, 34, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to ecpayment-stage.ecpay.com.tw:443 [ecpayment-stage.ecpay.com.tw\\\/175.99.72.32] failed: Connection timed out: connect", 34, null, null, null, null, null, null, null, null], "isController": false}]}, function(index, item){
+    createTable($("#top5ErrorsBySamplerTable"), {"supportsControllersDiscrimination": false, "overall": {"data": ["Total", 10000, 6804, "Non HTTP response code: javax.net.ssl.SSLHandshakeException\/Non HTTP response message: Remote host closed connection during handshake", 4701, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to idenaa.cashier.ecpay.com.tw:443 [idenaa.cashier.ecpay.com.tw\\\/175.99.72.91] failed: Connection timed out: connect", 1006, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: Connection reset", 576, "Non HTTP response code: org.apache.http.NoHttpResponseException\/Non HTTP response message: idenaa.cashier.ecpay.com.tw:443 failed to respond", 368, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: Software caused connection abort: recv failed", 89], "isController": false}, "titles": ["Sample", "#Samples", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors", "Error", "#Errors"], "items": [{"data": ["HTTP \u8981\u6C42", 10000, 6804, "Non HTTP response code: javax.net.ssl.SSLHandshakeException\/Non HTTP response message: Remote host closed connection during handshake", 4701, "Non HTTP response code: org.apache.http.conn.HttpHostConnectException\/Non HTTP response message: Connect to idenaa.cashier.ecpay.com.tw:443 [idenaa.cashier.ecpay.com.tw\\\/175.99.72.91] failed: Connection timed out: connect", 1006, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: Connection reset", 576, "Non HTTP response code: org.apache.http.NoHttpResponseException\/Non HTTP response message: idenaa.cashier.ecpay.com.tw:443 failed to respond", 368, "Non HTTP response code: java.net.SocketException\/Non HTTP response message: Software caused connection abort: recv failed", 89], "isController": false}]}, function(index, item){
         return item;
     }, [[0, 0]], 0);
 
